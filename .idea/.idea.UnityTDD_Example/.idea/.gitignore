@@ -1,0 +1,10 @@
+﻿# デフォルトの無視ファイル
+/shelf/
+/workspace.xml
+# Rider ignored files
+/modules.xml
+/projectSettingsUpdater.xml
+/contentModel.xml
+/.idea.UnityTDD_Example.iml
+# エディターベースの HTTP クライアントリクエスト
+/httpRequests/

@@ -1,9 +1,11 @@
 {
     "name": "Tests",
+    "rootNamespace": "",
     "references": [
         "UnityEngine.TestRunner",
         "UnityEditor.TestRunner",
-        "TDDExample"
+        "TDDExample",
+        "TDDExample02"
     ],
     "includePlatforms": [
         "Editor"

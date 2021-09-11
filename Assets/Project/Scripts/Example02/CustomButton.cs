@@ -29,10 +29,7 @@ public class CustomButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        if (Time.time - _downTime < 1F)
-        {
-            Tap?.Invoke();
-        }
+        Tap?.Invoke();
         StopCoroutine(_countDownCoroutine);
         _animator.SetTrigger("Released");
     }

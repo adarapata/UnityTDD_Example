@@ -12,8 +12,6 @@ public class CustomButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
     public event Action LongPress;
     private Coroutine _countDownCoroutine;
 
-    private float _downTime;
-
     private void Awake()
     {
         LongPress += () => print("long!!!");
@@ -22,7 +20,6 @@ public class CustomButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        _downTime = Time.time;
         _animator.SetTrigger("Pressed");
         _countDownCoroutine = StartCoroutine(CountDownLongPress(_duration));
     }

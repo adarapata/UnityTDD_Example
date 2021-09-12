@@ -27,7 +27,11 @@ public class CustomButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
     public void OnPointerUp(PointerEventData eventData)
     {
         Tap?.Invoke();
-        StopCoroutine(_countDownCoroutine);
+        if (_countDownCoroutine != null)
+        {
+            StopCoroutine(_countDownCoroutine);
+        }
+
         _animator.SetTrigger("Released");
     }
 
@@ -39,6 +43,11 @@ public class CustomButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
 
     public void OnPointerExit(PointerEventData eventData)
     {
+        if (_countDownCoroutine != null)
+        {
+            StopCoroutine(_countDownCoroutine);
+        }
+        
         _animator.SetTrigger("Released");
     }
 

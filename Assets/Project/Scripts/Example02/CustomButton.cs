@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class CustomButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
+public class CustomButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IPointerExitHandler, IPointerEnterHandler
 {
     [SerializeField] private Animator _animator;
     [SerializeField] private float _duration;
@@ -38,5 +38,15 @@ public class CustomButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
     {
         yield return new WaitForSeconds(duration);
         LongPress?.Invoke();
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        _animator.SetTrigger("Released");
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        _animator.SetTrigger("Pressed");
     }
 }
